@@ -1,24 +1,107 @@
 library(shiny)
 
+sidebar_panel <- tabsetPanel(
+  id = "dynamic_sidebar",
+  type = "hidden",
+  selectInput(
+    inputId = "reference_genome",
+    label = "Please select reference genome",
+    choices = c("GRCh38/hg38", "GRCh37/hg19", "GRCh36/hg18"),
+    selected = "GRCh38/hg38"
+  ),
+  tabPanel(
+    title = "Introduction",
+    fileInput(
+      inputId = "snv_data_input",
+      label = "Upload Point Mutation files",
+      buttonLabel = "Upload",
+      multiple = T,
+      accept = c(".csv", ".tsv", ".txt")
+    ),
+    fileInput(
+      inputId = "sv_data_input",
+      label = "Upload Structural Variant files",
+      buttonLabel = "Upload",
+      multiple = T,
+      accept = c(".csv", ".tsv", ".txt")
+    ),
+    fileInput(
+      inputId = "cnv_data_input",
+      label = "Upload Copy Number Variant files",
+      buttonLabel = "Upload",
+      multiple = T,
+      accept = c(".csv", ".tsv", ".txt")
+    )
+  ),
+  tabPanel(
+    title = "Point Mutations",
+    checkboxGroupInput(
+      inputId = "snv_plot",
+      choices = c("Summary plots", "Rainfall plot"),
+      label = "Plots to render"
+    )
+  ),
+  tabPanel(
+    title = "Structural Variants"
+  ),
+  tabPanel(
+    title = "Copy Number Variants"
+  ),
+  tabPanel(
+    title = "Circos Plot",
+    # checkboxGroupInput(
+    #   inputId = "variant",
+    #   label = "Select variant types",
+    #   choices = c("Single Nucleotide Variants",
+    #               "Structural Variants",
+    #               "Copy Number Variants"),
+    #   selected = c("Single Nucleotide Variants",
+    #                "Structural Variants",
+    #                "Copy Number Variants")
+    # )
+  )
+)
+
+
 # Define UI for application that draws a histogram
 ui <- fluidPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel(title = "Mutations data analysis and visualizations"),
   
-  # Sidebar with a slider input for number of bins 
   sidebarLayout(
+    # Siderbar Panel
     sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
+      sidebar_panel,
+      textOutput("test"),
+      width = 3
     ),
     
-    # Show a plot of the generated distribution
+    # Main Panel
     mainPanel(
-      plotOutput("distPlot")
+      tabsetPanel(id = "tabs",
+        tabPanel(
+          title = "Introduction"
+        ),
+        tabPanel(
+          title = "Point Mutations",
+          plotOutput(outputId = "oncoPlot"),
+          plotOutput(outputId = "summaryPlot")
+        ),
+        tabPanel(
+          title = "Structural Variants"
+        ),
+        tabPanel(
+          title = "Copy Number Variants"
+        ),
+        tabPanel(
+          title = "Circos Plot",
+          htmlOutput(
+            outputId = "circos_plot"
+          )
+        )
+        
+      )
     )
   )
 )

@@ -1,0 +1,129 @@
+SAMPLE_NAME, ID_SAMPLE, ID_TUMOUR, PRIMARY_SITE, SITE_SUBTYPE_1, SITE_SUBTYPE_2, SITE_SUBTYPE_3, PRIMARY_HISTOLOGY, HISTOLOGY_SUBTYPE_1, HISTOLOGY_SUBTYPE_2, HISTOLOGY_SUBTYPE_3, MUTATION_ID, MUTATION_TYPE, GRCH, DESCRIPTION, PUBMED_PMID, ID_STUDY
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28354,intrachromosomal with inverted orientation,38,chr16:g.35780996_chr16:o47773173bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27832,intrachromosomal deletion,38,chr10:g.127838984_128095460del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28004,Interchromosomal unknown type,38,chr1:g.238955893_chr3:o7999907bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28205,intrachromosomal with inverted orientation,38,chr3:g.5894507_chr3:o7337615bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27896,intrachromosomal deletion,38,chr16:g.6759073_6779573del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28022,Interchromosomal unknown type,38,chr1:g.o237623346_chr3:6874422bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28269,intrachromosomal with inverted orientation,38,chr6:g.o44511903_chr6:65023378bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28298,intrachromosomal with inverted orientation,38,chr6:g.40993080_chr6:o49775093bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28358,intrachromosomal with inverted orientation,38,chr6:g.50524897_chr6:o53573626bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27874,intrachromosomal deletion,38,chr16:g.6533052_6632894del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27978,Interchromosomal unknown type,38,chr1:g.o237688438_chr3:11063485bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28008,Interchromosomal unknown type,38,chr1:g.247119129_chr3:o3568776bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28054,Interchromosomal unknown type,38,chr2:g.o151225995_chr9:134102910bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28178,intrachromosomal with inverted orientation,38,chr3:g.o2881255_chr3:6195502bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28295,intrachromosomal with inverted orientation,38,chr6:g.25106490_chr6:o27009577bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28331,intrachromosomal with inverted orientation,38,chr6:g.o34457932_chr6:106783150bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28355,intrachromosomal with inverted orientation,38,chr6:g.25666370_chr6:o45980407bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27772,intrachromosomal deletion,38,chr5:g.178705433_179539983del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28007,Interchromosomal unknown type,38,chr1:g.235484692_chr3:o6863455bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28021,Interchromosomal unknown type,38,chr1:g.226632767_chr3:o3704638bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28243,intrachromosomal with inverted orientation,38,chr1:g.235693478_chr1:o238306199bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28335,intrachromosomal with inverted orientation,38,chr6:g.o39942159_chr6:49190977bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27873,intrachromosomal deletion,38,chr16:g.5693447_5786173del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28191,intrachromosomal with inverted orientation,38,chr1:g.226691201_chr1:o235640114bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28334,intrachromosomal with inverted orientation,38,chr6:g.39789400_chr6:o104859279bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27785,intrachromosomal deletion,38,chr1:g.247088861_247182680del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27917,intrachromosomal deletion,38,chr20:g.15105413_15128440del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28018,Interchromosomal unknown type,38,chr1:g.238310911_chr3:o2904630bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28023,Interchromosomal unknown type,38,chr5:g.172492953_chr9:o105159612bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28267,intrachromosomal with inverted orientation,38,chr6:g.o65075736_chr6:105988413bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27898,intrachromosomal deletion,38,chr6:g.39786803_39998430del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27914,intrachromosomal deletion,38,chr9:g.26179652_26340712del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28006,Interchromosomal unknown type,38,chr1:g.5341618_chr3:o6037608bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28320,intrachromosomal with inverted orientation,38,chr6:g.25080676_chr6:o107698909bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27971,Interchromosomal unknown type,38,chr3:g.10813447_chr5:o179380932bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28010,Interchromosomal unknown type,38,chr1:g.o247058080_chr5:178770874bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28038,Interchromosomal unknown type,38,chr1:g.235557767_chr3:o3256909bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28170,intrachromosomal with inverted orientation,38,chr1:g.o226691066_chr1:235679328bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28228,intrachromosomal with inverted orientation,38,chr3:g.3218136_chr3:o6859971bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28351,intrachromosomal with inverted orientation,38,chr6:g.42252856_chr6:o64373841bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28360,intrachromosomal with inverted orientation,38,chr6:g.o33342404_chr6:107557202bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27835,intrachromosomal deletion,38,chr3:g.4770566_4799270del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27837,intrachromosomal deletion,38,chr16:g.6870341_6899415del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28244,intrachromosomal with inverted orientation,38,chr3:g.o2831783_chr3:7033639bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28296,intrachromosomal with inverted orientation,38,chr6:g.o27783083_chr6:106384476bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27852,intrachromosomal deletion,38,chr3:g.6780008_6808459del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28019,Interchromosomal unknown type,38,chr3:g.o6970992_chr5:179570925bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28058,Interchromosomal unknown type,38,chr5:g.87921666_chr8:o90488519bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28061,Interchromosomal unknown type,38,chr1:g.246639123_chr3:o7566060bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28268,intrachromosomal with inverted orientation,38,chr6:g.74526374_chr6:o103939644bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28357,intrachromosomal with inverted orientation,38,chr6:g.39445908_chr6:o107421976bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27812,intrachromosomal deletion,38,chr7:g.111119889_111301766del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27836,intrachromosomal deletion,38,chr4:g.188768643_188838853del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27968,Interchromosomal unknown type,38,chr1:g.o247245868_chr3:5877704bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27987,Interchromosomal unknown type,38,chr1:g.238024668_chr3:o5153869bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28066,intrachromosomal inversion,38,chr2:g.53547688_53548809inv,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28297,intrachromosomal with inverted orientation,38,chr6:g.o34899856_chr6:106385487bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28402,intrachromosomal tandem duplication,38,chr3:g.6721080_7228860dup,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27995,Interchromosomal unknown type,38,chr1:g.o247178913_chr3:2785971bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28072,intrachromosomal inversion,38,chr2:g.60556282_60559312inv,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28272,intrachromosomal with inverted orientation,38,chr6:g.63776038_chr6:o107455438bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28321,intrachromosomal with inverted orientation,38,chr3:g.o6000437_chr3:7277495bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28333,intrachromosomal with inverted orientation,38,chr6:g.o38146952_chr6:40107876bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27834,intrachromosomal deletion,38,chr3:g.60252588_60655460del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27988,Interchromosomal unknown type,38,chr22:g.28669608_chrX:o93785002bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28011,Interchromosomal unknown type,38,chr3:g.o6246473_chr5:179398482bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28112,intrachromosomal inversion,38,chr1:g.238001999_238952949inv,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28245,intrachromosomal with inverted orientation,38,chr6:g.o42143299_chr6:105760295bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28270,intrachromosomal with inverted orientation,38,chr6:g.o41932261_chr6:107538025bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28384,intrachromosomal tandem duplication,38,chr3:g.6543104_7160451dup,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28055,Interchromosomal unknown type,38,chr7:g.o154194250_chr8:75514622bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28163,intrachromosomal with inverted orientation,38,chr3:g.3779045_chr3:o5529517bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28300,intrachromosomal with inverted orientation,38,chr7:g.o65921970_chr7:154194268bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28337,intrachromosomal with inverted orientation,38,chr6:g.42074840_chr6:o106606849bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28406,intrachromosomal tandem duplication,38,chr8:g.127089126_127392539dup,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28091,intrachromosomal inversion,38,chr5:g.133540023_134033000inv,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28207,intrachromosomal with inverted orientation,38,chr6:g.o65625107_chr6:74533268bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28336,intrachromosomal with inverted orientation,38,chr6:g.o41717112_chr6:58363273bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27977,Interchromosomal unknown type,38,chr1:g.237692466_chr3:o4594991bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28101,intrachromosomal inversion,38,chr6:g.51826826_52675468inv,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28208,intrachromosomal with inverted orientation,38,chr6:g.o127107087_chr6:128418676bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27872,intrachromosomal deletion,38,chr8:g.119371809_119669230del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27934,intrachromosomal deletion,38,chr8:g.122779127_122780649del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28206,intrachromosomal with inverted orientation,38,chr3:g.o2685823_chr3:8314590bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28246,intrachromosomal with inverted orientation,38,chr6:g.27267651_chr6:o107694305bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28356,intrachromosomal with inverted orientation,38,chr6:g.33133352_chr6:o106449501bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27992,Interchromosomal unknown type,38,chr1:g.o5315790_chr3:5170415bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27996,Interchromosomal unknown type,38,chr3:g.o3403746_chr5:178724780bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28396,intrachromosomal tandem duplication,38,chr3:g.2666506_2745099dup,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28104,intrachromosomal inversion,38,chr10:g.19064271_19068457inv,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28273,intrachromosomal with inverted orientation,38,chr16:g.27939128_chr16:o31814791bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28338,intrachromosomal with inverted orientation,38,chr6:g.127107090_chr6:o128418680bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28349,intrachromosomal with inverted orientation,38,chr6:g.43671864_chr6:o106377564bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28374,intrachromosomal tandem duplication,38,chr7:g.111297706_111499793dup,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28177,intrachromosomal with inverted orientation,38,chr1:g.o242148488_chr1:247139954bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27970,Interchromosomal unknown type,38,chr1:g.238189313_chr3:o5549616bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28039,Interchromosomal unknown type,38,chr1:g.237631473_chr3:o8276188bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28299,intrachromosomal with inverted orientation,38,chr6:g.41913727_chr6:o51744118bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27853,intrachromosomal deletion,38,chr16:g.6341355_7105066del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27986,Interchromosomal unknown type,38,chr1:g.o235402890_chr3:5915389bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28229,intrachromosomal with inverted orientation,38,chr3:g.o5167403_chr3:7694114bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28328,intrachromosomal with inverted orientation,38,chr6:g.26324207_chr6:o106673612bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28422,intrachromosomal tandem duplication,38,chr3:g.60572213_60580832dup,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27985,Interchromosomal unknown type,38,chr1:g.5483963_chr3:o7300068bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28062,Interchromosomal unknown type,38,chr22:g.o28669919_chrX:93785020bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28192,intrachromosomal with inverted orientation,38,chr3:g.2836428_chr3:o5918655bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28241,intrachromosomal with inverted orientation,38,chr3:g.o4811739_chr3:7055822bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28353,intrachromosomal with inverted orientation,38,chr6:g.o40365407_chr6:54414319bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27813,intrachromosomal deletion,38,chr1:g.49208063_49251685del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27833,intrachromosomal deletion,38,chr2:g.57028750_57064922del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27871,intrachromosomal deletion,38,chr3:g.5934577_5971802del,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28412,intrachromosomal tandem duplication,38,chr9:g.10527409_10581170dup,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28266,intrachromosomal with inverted orientation,38,chr6:g.51513925_chr6:o53759669bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28148,intrachromosomal with inverted orientation,38,chr3:g.o6549781_chr3:7562077bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28271,intrachromosomal with inverted orientation,38,chr6:g.o25640479_chr6:41328254bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28329,intrachromosomal with inverted orientation,38,chr6:g.o27225383_chr6:42195595bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28009,Interchromosomal unknown type,38,chr1:g.o226621469_chr3:3129183bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28142,intrachromosomal with inverted orientation,38,chr6:g.o27834610_chr6:106364051bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28359,intrachromosomal with inverted orientation,38,chr6:g.o55627860_chr6:62561953bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27993,Interchromosomal unknown type,38,chr1:g.o5343702_chr3:8265348bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28082,intrachromosomal inversion,38,chr3:g.3760912_3797068inv,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28332,intrachromosomal with inverted orientation,38,chr6:g.o36205186_chr6:44000544bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28381,intrachromosomal tandem duplication,38,chr1:g.10772354_10915025dup,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27994,Interchromosomal unknown type,38,chr1:g.o238615763_chr3:10908326bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27979,Interchromosomal unknown type,38,chr1:g.o235632732_chr5:178919280bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28327,intrachromosomal with inverted orientation,38,chr6:g.o25092168_chr6:106379986bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,28330,intrachromosomal with inverted orientation,38,chr6:g.27687993_chr6:o36229843bkpt,21892161,null
+CRC-3,1565434,1486824,large_intestine,NS,NS,NS,carcinoma,adenocarcinoma,NS,NS,27916,intrachromosomal deletion,38,chr4:g.189258328_189443150del,21892161,null

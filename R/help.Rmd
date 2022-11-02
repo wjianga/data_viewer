@@ -1,0 +1,17 @@
+---
+author: "Wenxuan Jiang"
+output: html_document
+---
+
+
+
+## Circos plot
+
+Four required files:
+
+1. segment data
+    - define the outmost track, or chromosome position. GRCh36, 37 and 38 are provided.
+    - three required fields: chromosome name, start position, end position
+    
+2. 
+
