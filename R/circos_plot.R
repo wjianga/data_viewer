@@ -34,16 +34,16 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
   
   
   snv <- snv_data %>% 
-    filter(Variant.Type == "SNP") %>% 
-    select(Chr, Start.Position) %>% 
-    mutate(start = floor(Start.Position / 10000000) * 10000000, end = start + (10000000)) %>% 
-    group_by(Chr, start, end) %>% 
+    filter(Variant_Type == "SNP") %>% 
+    select(Chromosome, Start_Position) %>% 
+    mutate(start = floor(Start_Position / 10000000) * 10000000, end = start + (10000000)) %>% 
+    group_by(Chromosome, start, end) %>% 
     summarize(start = start, end = end, count = n()) %>% 
     as.data.frame()
   
   
   barTracks = BioCircosBarTrack("myBar", 
-                                chromosomes = snv$Chr,
+                                chromosomes = snv$Chromosome,
                                 starts = snv$start,
                                 ends = snv$end,
                                 values = snv$count,

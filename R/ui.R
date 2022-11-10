@@ -81,7 +81,8 @@ ui <- fluidPage(
     mainPanel(
       tabsetPanel(id = "tabs",
         tabPanel(
-          title = "Introduction"
+          title = "Introduction",
+          includeMarkdown("../help/help.Rmd")
         ),
         tabPanel(
           title = "Point Mutations",
@@ -96,8 +97,10 @@ ui <- fluidPage(
         ),
         tabPanel(
           title = "Circos Plot",
-          htmlOutput(
+          column(12, align = "center",
+                 uiOutput(
             outputId = "circos_plot"
+          )
           )
         )
         

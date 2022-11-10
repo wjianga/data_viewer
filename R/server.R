@@ -31,7 +31,7 @@ server <- function(input, output) {
   #                          col = "MUTATION_DESCRIPTION",
   #                          into = c("Variant_Type", "Variant_Classification"),
   #                          sep = " - "
-  #                        ) %>% 
+  #                        ) %>%
   #                        mutate(
   #                          Variant_Classification =
   #                            ifelse(Variant_Classification == "Substitution", "SNP", Variant_Classification)
@@ -53,16 +53,12 @@ server <- function(input, output) {
   
   ## SNV
   output$oncoPlot <- renderPlot({
-    mafObj <- maftools::read.maf(snv_file(),
-                                 isTCGA = T,
-                                 vc_nonSyn = c("Missense", "In frame", "Frameshift"))
+    mafObj <- maftools::read.maf(snv_file())
     maftools::oncoplot(mafObj)
   })
   
   output$summaryPlot <- renderPlot({
-    mafObj <- maftools::read.maf(snv_file(),
-                                 isTCGA = T,
-                                 vc_nonSyn = c("Missense", "In frame", "Frameshift"))
+    mafObj <- maftools::read.maf(snv_file())
     maftools::plotmafSummary(mafObj)
   })
   
