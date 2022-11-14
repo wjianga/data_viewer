@@ -51,7 +51,14 @@ server <- function(input, output) {
                       selected = input$tabs)
   })
   
-  ## SNV
+  # SNV
+  observeEvent(input$snv_plot_checkboxInput, {
+    if ("Lollipop plot" %in% input$snv_plot_checkboxInput) {
+      updateTabsetPanel(inputId = "options",
+                        selected = "lollipop")
+    }
+  })
+  
   output$oncoPlot <- renderPlot({
     mafObj <- maftools::read.maf(snv_file())
     maftools::oncoplot(mafObj)

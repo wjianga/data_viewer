@@ -359,15 +359,29 @@ pre code {
 </div>
 
 
-<div id="circos-plot" class="section level2">
-<h2>Circos plot</h2>
-<p>Four required files:</p>
-<ol style="list-style-type: decimal">
-<li>segment data</li>
-</ol>
-<ul>
-<li>define</li>
-</ul>
+<!-- ## Circos plot -->
+<!-- Four required files: -->
+<!-- 1. segment data -->
+<!--     - define the outmost track, or chromosome position. GRCh36, 37 and 38 are provided. -->
+<!--     - three required fields: chromosome name, start position, end position -->
+<!-- 2.  -->
+<style type="text/css">
+  body{
+  font-size: 12pt;
+}
+</style>
+<div id="input-format" class="section level3">
+<h3>Input format</h3>
+<div id="single-nucleotide-variants" class="section level4">
+<h4>Single Nucleotide Variants:</h4>
+<p>Input file should conform to maf files format, with the following
+list of fields:</p>
+<blockquote>
+<p>Hugo_Symbol, Chromosome, Start_Position, End_Position,
+Reference_Allele, Tumor_Seq_Allele2, Variant_Classification,
+Variant_Type and Tumor_Sample_Barcode.</p>
+</blockquote>
+</div>
 </div>
 
 

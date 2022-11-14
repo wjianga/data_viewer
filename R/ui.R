@@ -1,5 +1,6 @@
 library(shiny)
 
+# dynamically change side bar layout based on which tab the user selected
 sidebar_panel <- tabsetPanel(
   id = "dynamic_sidebar",
   type = "hidden",
@@ -36,8 +37,8 @@ sidebar_panel <- tabsetPanel(
   tabPanel(
     title = "Point Mutations",
     checkboxGroupInput(
-      inputId = "snv_plot",
-      choices = c("Summary plots", "Rainfall plot"),
+      inputId = "snv_plot_checkboxInput",
+      choices = c("Summary plots", "Lollipop plot"),
       label = "Plots to render"
     )
   ),
@@ -62,6 +63,31 @@ sidebar_panel <- tabsetPanel(
   )
 )
 
+# dynamically change the options based on plots chosen
+option_panel <- tabsetPanel(
+  id = "options",
+  type = "hidden",
+  tabPanel(
+    title = "default"
+  ),
+  tabPanel(
+    title = "lollipop",
+    selectInput(
+      inputId = "lollipop_gene",
+      label = "Gene for lollipop plot",
+      choices = c()
+    ),
+    selectInput(
+      inputId = "snv_plot_sample",
+      label = "Sample",
+      choices = c()
+    )
+  )
+)
+
+# # dynamically change the main panel based on sidebar input
+# # Main Panel
+# main_panel <- 
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -73,37 +99,39 @@ ui <- fluidPage(
     # Siderbar Panel
     sidebarPanel(
       sidebar_panel,
+      option_panel,
       textOutput("test"),
       width = 3
     ),
     
-    # Main Panel
     mainPanel(
+      title = "dynamic_main",
       tabsetPanel(id = "tabs",
-        tabPanel(
-          title = "Introduction",
-          includeMarkdown("../help/help.Rmd")
-        ),
-        tabPanel(
-          title = "Point Mutations",
-          plotOutput(outputId = "oncoPlot"),
-          plotOutput(outputId = "summaryPlot")
-        ),
-        tabPanel(
-          title = "Structural Variants"
-        ),
-        tabPanel(
-          title = "Copy Number Variants"
-        ),
-        tabPanel(
-          title = "Circos Plot",
-          column(12, align = "center",
-                 uiOutput(
-            outputId = "circos_plot"
-          )
-          )
-        )
-        
+                  tabPanel(
+                    title = "Introduction",
+                    includeMarkdown("../help/help.Rmd")
+                  ),
+                  tabPanel(
+                    title = "Point Mutations",
+                    uiOutput(outputId = "oncoPlot")
+                    # plotOutput(outputId = "oncoPlot"),
+                    # plotOutput(outputId = "summaryPlot")
+                  ),
+                  tabPanel(
+                    title = "Structural Variants"
+                  ),
+                  tabPanel(
+                    title = "Copy Number Variants"
+                  ),
+                  tabPanel(
+                    title = "Circos Plot",
+                    column(12, align = "center",
+                           uiOutput(
+                             outputId = "circos_plot"
+                           )
+                    )
+                  )
+                  
       )
     )
   )

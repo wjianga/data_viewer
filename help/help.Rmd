@@ -13,4 +13,21 @@ output: html_document
 
 <!-- 2.  -->
 
-## This is a 
+<style type="text/css">
+  body{
+  font-size: 12pt;
+}
+</style>
+
+### Input format 
+
+#### Single Nucleotide Variants:
+
+Input file should conform to maf files format, with the following list of fields:
+
+> Tumor_Sample_Barcode, Hugo_Symbol, Chromosome, Start_Position, End_Position, Reference_Allele, Tumor_Seq_Allele2, Variant_Classification, Variant_Type
+
+#### Structural Variants
+
+#### Copy Number Variants
+
