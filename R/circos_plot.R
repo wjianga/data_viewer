@@ -35,10 +35,10 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
   
   snv <- snv_data %>% 
     filter(Variant_Type == "SNP") %>% 
-    select(Chromosome, Start_Position) %>% 
-    mutate(start = floor(Start_Position / 10000000) * 10000000, end = start + (10000000)) %>% 
-    group_by(Chromosome, start, end) %>% 
-    summarize(start = start, end = end, count = n()) %>% 
+    dplyr::select(Chromosome, Start_Position) %>% 
+    dplyr::mutate(start = floor(Start_Position / 10000000) * 10000000, end = start + (10000000)) %>% 
+    dplyr::group_by(Chromosome, start, end) %>% 
+    dplyr::summarize(start = start, end = end, count = n()) %>% 
     as.data.frame()
   
   
@@ -52,7 +52,7 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
   
   
   cnv <- cnv_data %>% 
-    mutate(Chromosome = sapply(.$Chromosome,
+    dplyr::mutate(Chromosome = sapply(.$Chromosome,
                                str_remove,
                                "chr"))
   
@@ -68,7 +68,7 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
   
   sv <- sv_data %>% 
     filter(MUTATION_TYPE != "intrachromosomal deletion") %>% 
-    select("DESCRIPTION") %>% 
+    dplyr::select("DESCRIPTION") %>% 
     separate(col = everything(),
              into = c("start", "end"),
              sep = "_") %>% 
@@ -78,7 +78,7 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
     separate(col = end,
              into = c("Chr2", "Start2"),
              sep = ":") %>% 
-    mutate(Chr1 = sapply(.$Chr1, str_remove, "chr"),
+    dplyr::mutate(Chr1 = sapply(.$Chr1, str_remove, "chr"),
            Chr2 = sapply(.$Chr2, str_remove, "chr"),
            Start1 = sapply(.$Start1, str_remove_all, "[a-z.]+"),
            Start2 = sapply(.$Start2, str_remove_all, "[a-z]+")) %>% 

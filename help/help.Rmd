@@ -21,13 +21,28 @@ output: html_document
 
 ### Input format 
 
+This data viewer accepts three types of input formats: .csv, .tsv, and .txt. By default, this viewer recognize the input file as csv.
+
+You could adjust the separator used in your variants data set using the `File Extension` drop-down for individual variant type.
+
 #### Single Nucleotide Variants:
 
 Input file should conform to maf files format, with the following list of fields:
 
-> Tumor_Sample_Barcode, Hugo_Symbol, Chromosome, Start_Position, End_Position, Reference_Allele, Tumor_Seq_Allele2, Variant_Classification, Variant_Type
+> Tumor_Sample_Barcode, Hugo_Symbol, Chromosome, Start_Position, End_Position, Reference_Allele, Tumor_Seq_Allele2, Variant_Classification, Variant_Type, Protein_Change
 
-#### Structural Variants
+#### Structural Variants:
 
-#### Copy Number Variants
+Input file should have these mandatory fields:
+
+> Tumor_Sample_Barcode, Chromosome1, Start_Position_1, Chromosome2, Start_Position_2
+
+#### Copy Number Variants:
+
+Input file should have these mandatory fields:
+
+> Start_Position, End_Postion, Reads_Ratio
+
+
+
 

@@ -1,4 +1,5 @@
 library(shiny)
+library(shinyFeedback)
 
 # dynamically change side bar layout based on which tab the user selected
 sidebar_panel <- tabsetPanel(
@@ -12,6 +13,11 @@ sidebar_panel <- tabsetPanel(
   ),
   tabPanel(
     title = "Introduction",
+    selectInput(
+      inputId = "snv_input_type",
+      label = "File extension",
+      choices = c(".csv", ".tsv", ".txt")
+    ),
     fileInput(
       inputId = "snv_data_input",
       label = "Upload Point Mutation files",
@@ -19,12 +25,22 @@ sidebar_panel <- tabsetPanel(
       multiple = T,
       accept = c(".csv", ".tsv", ".txt")
     ),
+    selectInput(
+      inputId = "sv_input_type",
+      label = "File extension",
+      choices = c(".csv", ".tsv", ".txt")
+    ),
     fileInput(
       inputId = "sv_data_input",
       label = "Upload Structural Variant files",
       buttonLabel = "Upload",
       multiple = T,
       accept = c(".csv", ".tsv", ".txt")
+    ),
+    selectInput(
+      inputId = "cnv_input_type",
+      label = "File extension",
+      choices = c(".csv", ".tsv", ".txt")
     ),
     fileInput(
       inputId = "cnv_data_input",
@@ -38,7 +54,7 @@ sidebar_panel <- tabsetPanel(
     title = "Point Mutations",
     checkboxGroupInput(
       inputId = "snv_plot_checkboxInput",
-      choices = c("Summary plots", "Lollipop plot"),
+      choices = c("Oncoplot", "Summary plots", "Lollipop plot", "Rainfall plot"),
       label = "Plots to render"
     )
   ),
@@ -46,7 +62,15 @@ sidebar_panel <- tabsetPanel(
     title = "Structural Variants"
   ),
   tabPanel(
-    title = "Copy Number Variants"
+    title = "Copy Number Variants",
+    fluidRow(
+      column(6,
+             numericInput('cnv_plot_start', 'Start Coordinate', value = 0,
+                          min = 0)),
+      column(6,
+             numericInput('cnv_plot_end', 'End Coordinate', value = 15000000))
+    ),
+    selectInput("cnv_plot_chr", "Chrmosome", choices = c(1:22))
   ),
   tabPanel(
     title = "Circos Plot",
@@ -65,17 +89,16 @@ sidebar_panel <- tabsetPanel(
 
 # dynamically change the options based on plots chosen
 option_panel <- tabsetPanel(
-  id = "options",
+  id = "sideBarOptions",
   type = "hidden",
   tabPanel(
     title = "default"
   ),
   tabPanel(
     title = "lollipop",
-    selectInput(
+    textInput(
       inputId = "lollipop_gene",
-      label = "Gene for lollipop plot",
-      choices = c()
+      label = "Gene for lollipop plot"
     ),
     selectInput(
       inputId = "snv_plot_sample",
@@ -91,6 +114,7 @@ option_panel <- tabsetPanel(
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
+  shinyFeedback::useShinyFeedback(),
   
   # Application title
   titlePanel(title = "Mutations data analysis and visualizations"),
@@ -113,15 +137,18 @@ ui <- fluidPage(
                   ),
                   tabPanel(
                     title = "Point Mutations",
-                    uiOutput(outputId = "oncoPlot")
-                    # plotOutput(outputId = "oncoPlot"),
-                    # plotOutput(outputId = "summaryPlot")
+                    plotOutput(outputId = "oncoPlot"),
+                    plotOutput(outputId = "snv_summaryPlot"),
+                    plotOutput(outputId = "snv_lollipopPlot")
                   ),
                   tabPanel(
-                    title = "Structural Variants"
+                    title = "Structural Variants",
+                    # plotOutput(outputId = "sv_summaryPlot"),
+                    dataTableOutput(outputId = "sv_table")
                   ),
                   tabPanel(
-                    title = "Copy Number Variants"
+                    title = "Copy Number Variants",
+                    plotOutput("cnv_plot")
                   ),
                   tabPanel(
                     title = "Circos Plot",
@@ -131,7 +158,6 @@ ui <- fluidPage(
                            )
                     )
                   )
-                  
       )
     )
   )
