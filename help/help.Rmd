@@ -15,34 +15,37 @@ output: html_document
 
 <style type="text/css">
   body{
-  font-size: 12pt;
+  font-size: 15pt;
 }
 </style>
 
-### Input format 
+## Input format 
 
-This data viewer accepts three types of input formats: .csv, .tsv, and .txt. By default, this viewer recognize the input file as csv.
+This data viewer accepts three types of input formats: .csv, .tsv, and .txt. By default, this viewer reads in the input file as csv. You could adjust the separator used in your variants data set using the `File Extension` drop-down for individual variant type.
 
-You could adjust the separator used in your variants data set using the `File Extension` drop-down for individual variant type.
+This web application provides visualizaitons for three different variant types: Single Nucleotide Variants, Structural Variants, and Copy Number Variants. To take advantage of features in this web application, there are certain required variables for each variant type. 
 
-#### Single Nucleotide Variants:
+### Single Nucleotide Variants:
 
-Input file should conform to maf files format, with the following list of fields:
+Input file should have the following mandatory fields:
 
-> Tumor_Sample_Barcode, Hugo_Symbol, Chromosome, Start_Position, End_Position, Reference_Allele, Tumor_Seq_Allele2, Variant_Classification, Variant_Type, Protein_Change
+> Sample, Hugo_Symbol, Chromosome, Start_Position, End_Position, Reference_Allele, Tumor_Seq_Allele2, Variant_Classification, Variant_Type, Protein_Change
 
-#### Structural Variants:
-
-Input file should have these mandatory fields:
-
-> Tumor_Sample_Barcode, Chromosome1, Start_Position_1, Chromosome2, Start_Position_2
-
-#### Copy Number Variants:
+### Structural Variants:
 
 Input file should have these mandatory fields:
 
-> Start_Position, End_Postion, Reads_Ratio
+> Sample, Hugo_Symbol, Chromosome1, Start_Position_1, Chromosome2, Start_Position_2
+
+### Copy Number Variants:
+
+Input file should have these mandatory fields:
+
+> Sample, Hugo_Symbol, Chromosome, Start_Position, End_Postion, Reads_Ratio
+
+### Reference Genome:
+
+There are three reference genomes provided for this web application, GRCh38/hg38, GRCh37/hg19, GRCh36/hg18. You can choose the one you used to call variants. By default the dashboard uses GRCh38/hg38. 
 
 
-
-
+**Once you are done uploading your variants datasets and choosing reference genome, you could navigate to User Manual tab to learn how to use this dashboard or go straight to individual variant analysis tab**

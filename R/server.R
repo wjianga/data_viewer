@@ -3,9 +3,11 @@ library(maftools)
 library(tidyverse)
 library(shinyFeedback)
 library(data.table)
-# library(DT)
+library(DT) # datatable() function
 
 options(shiny.maxRequestSize=10*1024^2)
+
+hg38_genes <- read.csv("../data/genes_hg38.bed", sep = "\t")
 
 source("./circos_plot.R")
 source("./plot_cnv.R")
@@ -50,38 +52,192 @@ server <- function(input, output) {
   observeEvent(input$tabs, { 
     updateTabsetPanel(inputId = "dynamic_sidebar",
                       selected = input$tabs)
+    
+    # every time you switch out a tab, clear options tab
+    updateTabsetPanel(inputId = "sideBarOptions",
+                      selected = "default")
   })
   
   ## SNV
   observeEvent(input$snv_plot_checkboxInput, {
-    print(input$snv_plot_checkboxInput)
-    if ("Lollipop plot" %in% input$snv_plot_checkboxInput) {
+    output$firstPlot = renderPlot({
+    })
+    
+    output$secondPlot = renderPlot({
+    })
+
+    
+    numOfPlot = length(input$snv_plot_checkboxInput)
+    
+    if (numOfPlot > 2) {
+      updateCheckboxGroupInput(inputId = "snv_plot_checkboxInput",
+                               selected = c("Oncoplot", "Summary plot"))
+      numOfPlot == 2
+    }
+    
+    if (numOfPlot == 1) {
+      
+      if (input$snv_plot_checkboxInput == "Lollipop plot") {
+        updateTabsetPanel(inputId = "sideBarOptions",
+                          selected = "lollipop")
+        
+        req(input$lollipop_gene)
+        req(input$snv_data_input$datapath)
+        
+        output$firstPlot = renderPlot({
+          maftools::lollipopPlot(mafObj(),
+                                 gene = toupper(input$lollipop_gene),
+                                 AACol = "Protein_Change",
+                                 labelPos = "all")
+        })
+      } else if (input$snv_plot_checkboxInput == "Rainfall plot") {
+        updateTabsetPanel(inputId = "sideBarOptions",
+                          selected = "rainfall")
+
+        req(input$snv_data_input$datapath)
+        
+        output$firstPlot = renderPlot({
+          maftools::rainfallPlot(mafObj(),
+                                 tsb = toupper(input$rainfall_sample))
+      })
+      } else {
+        req(input$snv_data_input$datapath)
+        
+        if (input$snv_plot_checkboxInput == "Oncoplot") {
+          output$firstPlot = renderPlot({
+            maftools::oncoplot(mafObj())
+          })
+        } else if (input$snv_plot_checkboxInput == "Summary plot") {
+          output$firstPlot = renderPlot({
+            maftools::plotmafSummary(mafObj())
+          })
+        }
+      }
+    } else if (numOfPlot == 2) {
+      if ("Lollipop plot" %in% input$snv_plot_checkboxInput && "Rainfall plot" %in% input$snv_plot_checkboxInput) {
+        updateTabsetPanel(inputId = "sideBarOptions",
+                          selected = "lollipopANDrainfall")
+        
+        output$firstPlot = renderPlot({
+          maftools::lollipopPlot(mafObj(),
+                                 gene = toupper(input$snv_gene),
+                                 AACol = "Protein_Change",
+                                 labelPos = "all")
+        })
+        
+        output$secondPlot = renderPlot({
+          maftools::lollipopPlot(mafObj(),
+                                 gene = toupper(input$snv_gene),
+                                 AACol = "Protein_Change",
+                                 labelPos = "all")
+        })
+        
+      } else if ("Lollipop plot" %in% input$snv_plot_checkboxInput) {
+        updateTabsetPanel(inputId = "sideBarOptions",
+                          selected = "lollipop")
+        
+        if (input$snv_plot_checkboxInput[1] == "Oncoplot"){
+          output$firstPlot = renderPlot({
+            maftools::oncoplot(mafObj())
+          })
+          output$secondPlot = renderPlot({
+            maftools::lollipopPlot(mafObj(),
+                                   gene = toupper(input$lollipop_gene),
+                                   AACol = "Protein_Change",
+                                   labelPos = "all")
+          })
+        } else {
+          output$firstPlot = renderPlot({
+            maftools::plotmafSummary(mafObj())
+          })
+          
+          output$secondPlot = renderPlot({
+            maftools::lollipopPlot(mafObj(),
+                                   gene = toupper(input$lollipop_gene),
+                                   AACol = "Protein_Change",
+                                   labelPos = "all")
+          })
+        }
+        
+      } else if ("Rainfall plot" %in% input$snv_plot_checkboxInput) {
+        updateTabsetPanel(inputId = "sideBarOptions",
+                          selected = "rainfall")
+        
+        if (input$snv_plot_checkboxInput[1] == "Oncoplot"){
+          output$firstPlot = renderPlot({
+            maftools::oncoplot(mafObj())
+            })
+          output$secondPlot = renderPlot({
+            maftools::rainfallPlot(mafObj(),
+                                   tsb = toupper(input$rainfall_sample))
+          })
+        } else {
+          output$firstPlot = renderPlot({
+            maftools::plotmafSummary(mafObj())
+          })
+          
+          output$secondPlot = renderPlot({
+            maftools::rainfallPlot(mafObj(),
+                                   tsb = toupper(input$rainfall_sample))
+          })
+        }
+      } else {
+            output$firstPlot = renderPlot({
+              maftools::oncoplot(mafObj())
+            })
+
+            output$secondPlot = renderPlot({
+              maftools::plotmafSummary(mafObj())
+          })
+      }
+    }
+})
+  
+  observeEvent(input$cnv_plot_mode, {
+    if (input$cnv_plot_mode == "By Hugo_Symbol") {
       updateTabsetPanel(inputId = "sideBarOptions",
-                        selected = "lollipop")
+                        selected = "CNV_by_gene")
+      
     } else {
       updateTabsetPanel(inputId = "sideBarOptions",
-                        selected = "default")
+                        selected = "CNV_by_coor")
+      
+      ## CNV
+      output$cnv_plot <- renderPlot({
+        req(input$cnv_data_input$datapath)
+        
+        plot_cnv(cnv_file(), 
+                 input$cnv_plot_start, 
+                 input$cnv_plot_end,
+                 input$cnv_plot_chr,
+                 input$cnv_plot_sample)
+      })
     }
-  })
+    
+    })
   
-  output$oncoPlot <- renderPlot({
+  observeEvent(input$cnv_plot_gene, {
+    gene_loc <- hg38_genes %>% 
+      filter(str_remove(chromosome, "chr") == input$cnv_plot_chr) %>% 
+      filter(name == toupper(input$cnv_plot_gene))
+    
+    ## CNV
+    output$cnv_plot <- renderPlot({
+      req(input$cnv_data_input$datapath)
+      
+      plot_cnv(cnv_file(), 
+               min(gene_loc$start) - 100000, 
+               max(gene_loc$end) + 100000,
+               input$cnv_plot_chr,
+               input$cnv_plot_sample)
+      })
+    })
+  
+  output$firstPlot <- renderPlot({
     req(input$snv_data_input$datapath)
   
     maftools::oncoplot(mafObj())
   })
-  
-  output$snv_summaryPlot <- renderPlot({
-    req(input$snv_data_input$datapath)
-
-    maftools::plotmafSummary(mafObj())
-  })
-  
-  output$snv_lollipopPlot <- renderPlot({
-    maftools::lollipopPlot(mafObj(),
-                           gene = toupper(input$lollipop_gene),
-                           AACol = "Protein_Change",
-                           labelPos = "all")
-    })
   
   ## SV
   output$sv_table <- renderDataTable({
@@ -93,16 +249,6 @@ server <- function(input, output) {
                      scrollY = TRUE)
     )
   })
-  
-  ## CNV
-  output$cnv_plot <- renderPlot({
-    req(input$cnv_data_input$datapath)
-    
-    plot_cnv(cnv_file(), 
-             input$cnv_plot_start, 
-             input$cnv_plot_end,
-             input$cnv_plot_chr)
-    })
   
   
   ## Circos plot

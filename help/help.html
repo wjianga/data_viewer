@@ -367,21 +367,151 @@ pre code {
 <!-- 2.  -->
 <style type="text/css">
   body{
-  font-size: 12pt;
+  font-size: 15pt;
 }
 </style>
 <div id="input-format" class="section level3">
 <h3>Input format</h3>
+<p>This data viewer accepts three types of input formats: .csv, .tsv,
+and .txt. By default, this viewer reads in the input file as csv. You
+could adjust the separator used in your variants data set using the
+<code>File Extension</code> drop-down for individual variant type.</p>
+<p>This web application provides visualizaitons for three different
+variant types: Single Nucleotide Variants, Structural Variants, and Copy
+Number Variants. To take advantage of features in this web application,
+there are certain required variables for each variant type.</p>
 <div id="single-nucleotide-variants" class="section level4">
 <h4>Single Nucleotide Variants:</h4>
-<p>Input file should conform to maf files format, with the following
-list of fields:</p>
+<p>Input file should conform to MAF files format, with the following
+mandatory fields:</p>
 <blockquote>
-<p>Hugo_Symbol, Chromosome, Start_Position, End_Position,
-Reference_Allele, Tumor_Seq_Allele2, Variant_Classification,
-Variant_Type and Tumor_Sample_Barcode.</p>
+<p>Tumor_Sample_Barcode, Hugo_Symbol, Chromosome, Start_Position,
+End_Position, Reference_Allele, Tumor_Seq_Allele2,
+Variant_Classification, Variant_Type, Protein_Change</p>
 </blockquote>
 </div>
+<div id="structural-variants" class="section level4">
+<h4>Structural Variants:</h4>
+<p>Input file should have these mandatory fields:</p>
+<blockquote>
+<p>Tumor_Sample_Barcode, Hugo_Symbol, Chromosome1, Start_Position_1,
+Chromosome2, Start_Position_2</p>
+</blockquote>
+</div>
+<div id="copy-number-variants" class="section level4">
+<h4>Copy Number Variants:</h4>
+<p>Input file should have these mandatory fields:</p>
+<blockquote>
+<p>Tumor_Sample_Barcode, Hugo_Symbol, Chromosome, Start_Position,
+End_Postion, Reads_Ratio</p>
+</blockquote>
+</div>
+</div>
+<div id="how-to-use-this-application" class="section level3">
+<h3>How to use this application</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+massa justo, maximus non turpis ut, facilisis lacinia ex. Morbi
+pellentesque massa magna, non aliquet velit egestas sed. Proin maximus
+eleifend tortor et ultricies. Praesent sagittis viverra odio, et porta
+orci sodales non. Maecenas cursus est in lectus finibus aliquet.
+Phasellus id efficitur eros. Integer nisi nulla, lobortis finibus est
+at, tincidunt elementum turpis. Praesent pretium ultricies ex ac tempus.
+Quisque auctor erat id aliquet vulputate. Donec justo arcu, pretium ut
+ornare in, facilisis a diam. Donec ut diam sed massa convallis
+pellentesque sed et nulla. Cras in ultricies felis. Nunc euismod
+ullamcorper orci, ut suscipit mi mollis sit amet. Ut commodo eu odio
+vitae dignissim.</p>
+<p>Phasellus sit amet ante id lorem vulputate facilisis. Donec a justo
+nisl. Donec augue libero, viverra vel sapien eu, laoreet commodo sapien.
+Morbi porttitor ligula et dolor consequat semper. Ut volutpat dapibus
+sem, et ullamcorper enim sodales a. Suspendisse pharetra tincidunt
+lectus eu finibus. Phasellus mattis, elit nec scelerisque cursus, ante
+purus convallis nibh, sit amet fermentum nulla felis sit amet elit.
+Donec pulvinar, est sed maximus laoreet, urna nibh elementum turpis, non
+rutrum sapien enim quis massa. Curabitur id leo vitae velit condimentum
+malesuada.</p>
+<p>Proin lobortis felis vitae suscipit elementum. Maecenas et lectus
+enim. Donec placerat rhoncus cursus. Etiam hendrerit, ex dictum
+tristique accumsan, justo odio porttitor erat, vitae dictum tellus
+ligula at sapien. Proin nec sodales tellus, quis euismod quam. Nulla
+suscipit facilisis erat vitae rutrum. Curabitur sed dignissim risus.
+Nunc aliquam facilisis leo, non egestas ex. Phasellus malesuada placerat
+augue, quis tempus mauris accumsan quis. Morbi malesuada, nisl ut
+placerat interdum, sapien velit condimentum ipsum, ac venenatis est
+ipsum a nulla. Nullam quis aliquam leo.</p>
+<p>In in tempor augue. Morbi commodo augue vitae neque luctus, ut
+tincidunt quam vestibulum. Sed finibus libero est, sit amet vestibulum
+est cursus ac. Curabitur sit amet ex diam. Etiam augue erat, condimentum
+sed arcu tristique, commodo imperdiet urna. Quisque sit amet eros eros.
+Vivamus aliquam lorem at mattis suscipit. Cras nec diam sit amet tellus
+ornare luctus.</p>
+<p>Nullam in elit quis ligula mattis placerat. Phasellus porta sapien
+vitae nibh rhoncus, a convallis mauris lacinia. Aenean sollicitudin,
+arcu ut maximus elementum, est dolor varius felis, quis commodo elit
+libero vitae libero. Sed efficitur auctor leo sed pellentesque. Aliquam
+erat volutpat. Aliquam eu dapibus ipsum. Etiam mattis commodo ipsum id
+lobortis. In hac habitasse platea dictumst.</p>
+<p>Nunc vestibulum vehicula maximus. Aliquam id nulla ligula. Vivamus
+ornare tincidunt mauris, et laoreet purus finibus non. Sed diam metus,
+tincidunt sit amet euismod vel, cursus quis urna. Nulla ultrices ut
+velit mollis luctus. Aenean cursus varius lacus a elementum. Maecenas
+leo ante, venenatis eget sem a, tempus scelerisque lacus. Aenean lacinia
+mauris nisl, et mattis odio vulputate at. Duis suscipit ligula odio.
+Donec malesuada tortor eros, ac accumsan diam blandit et. Curabitur a
+lectus ut erat euismod bibendum a vel enim. Pellentesque quis hendrerit
+est, posuere accumsan urna. Integer at elit eu sem ornare tempor sit
+amet vel massa. Aliquam fringilla molestie diam, sit amet ornare lacus
+egestas ut. Proin sodales urna libero, et viverra nibh laoreet et. Nulla
+fermentum auctor leo vel congue.</p>
+<p>Pellentesque a ex vel elit lacinia dictum. Sed commodo eget ipsum non
+gravida. Nulla viverra varius tempor. Pellentesque lacinia fermentum
+gravida. Sed maximus pharetra porta. Donec semper mauris at odio posuere
+laoreet. Mauris quam massa, consectetur at tempor volutpat, sollicitudin
+eget risus. Sed scelerisque dui eget augue lacinia, id pharetra elit
+euismod. Nulla sit amet tortor ornare, tempor dui sagittis, mollis
+tortor. Morbi sit amet elementum leo. Maecenas volutpat lacinia ipsum,
+quis tempor arcu facilisis et. Orci varius natoque penatibus et magnis
+dis parturient montes, nascetur ridiculus mus.</p>
+<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+per inceptos himenaeos. Nunc vehicula blandit porta. Ut eget ultricies
+lacus. Morbi vel pellentesque urna. Nullam faucibus vehicula lorem, quis
+ultricies neque imperdiet sed. Fusce dapibus massa est, sit amet mattis
+odio aliquam sed. Proin consectetur nibh ante, a bibendum nulla varius
+sit amet. Nunc mi tellus, pharetra quis sagittis vel, viverra mattis
+metus. Maecenas elementum convallis eros sit amet iaculis. Vestibulum
+facilisis, neque a sollicitudin bibendum, mi tortor gravida risus,
+pretium elementum odio erat in magna. Curabitur fermentum elit lectus,
+ut suscipit dolor venenatis id.</p>
+<p>Nullam condimentum vehicula mauris iaculis pharetra. Donec sodales
+tristique augue eu rutrum. Sed ac porta lorem. Cras ultricies metus nec
+nunc fringilla, eu sollicitudin ante pharetra. Aliquam imperdiet porta
+pellentesque. Phasellus rutrum consectetur accumsan. Morbi nisi tortor,
+mattis et erat a, convallis faucibus justo. Donec elit sem, tempus eu
+dapibus eget, pretium nec felis. Nullam euismod libero ligula, id tempus
+tortor iaculis quis.</p>
+<p>Vivamus sed nisi eros. Cras euismod diam nisi, id euismod mi
+vestibulum sed. Donec venenatis ante libero, quis laoreet lorem laoreet
+a. Quisque vel velit lectus. Duis eget purus purus. Nulla velit sapien,
+dictum in malesuada sed, commodo congue tellus. Aliquam lacinia nisi et
+eros sollicitudin consequat eget ac lectus. Pellentesque habitant morbi
+tristique senectus et netus et malesuada fames ac turpis egestas. Duis
+sed augue id tortor bibendum gravida sodales sed mauris. Vestibulum ante
+ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+Curabitur ac lacus in risus tincidunt volutpat. Nullam elit ipsum,
+rutrum in arcu id, aliquet facilisis purus. Ut feugiat ultrices finibus.
+Donec imperdiet ligula at erat interdum, ut euismod nibh vehicula.</p>
+<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam
+ultrices eros ultrices, tempus mauris vitae, eleifend odio. Orci varius
+natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+mus. Sed eu lorem ante. Sed nisi ante, lobortis vitae odio ut, lobortis
+tristique nisl. Proin at tortor orci. Nunc auctor, erat at tristique
+pulvinar, tortor turpis interdum felis, vel convallis eros lacus nec
+nisl. Suspendisse tempor orci sed sodales bibendum.</p>
+<p>Proin et mauris lacus. Praesent suscipit quam aliquam, lacinia lacus
+in, hendrerit quam. Donec pharetra scelerisque ultricies. Nunc nec felis
+a magna tincidunt euismod sit amet eu metus. Donec ac ante nec dui
+fermentum accumsan. Quisque pellentesque mauris id magna tincidunt
+laoreet.</p>
 </div>
 
 

@@ -58,13 +58,11 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
   
   cnvTrack = BioCircosCNVTrack("myCNV",
                                chromosomes = cnv$Chromosome,
-                               starts = cnv$Start,
-                               ends = cnv$End,
-                               values = cnv$Copy_Number,
+                               starts = cnv$Start_Position,
+                               ends = cnv$End_Position,
+                               values = cnv$Reads_Ratio,
                                minRadius = 0.5,
                                maxRadius = 0.6)
-  
-  
   
   sv <- sv_data %>% 
     filter(MUTATION_TYPE != "intrachromosomal deletion") %>% 

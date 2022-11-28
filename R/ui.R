@@ -1,7 +1,7 @@
 library(shiny)
 library(shinyFeedback)
+library(shinythemes)
 
-# dynamically change side bar layout based on which tab the user selected
 sidebar_panel <- tabsetPanel(
   id = "dynamic_sidebar",
   type = "hidden",
@@ -11,6 +11,8 @@ sidebar_panel <- tabsetPanel(
     choices = c("GRCh38/hg38", "GRCh37/hg19", "GRCh36/hg18"),
     selected = "GRCh38/hg38"
   ),
+  # dynamically change side bar layout based on which tab the user selected
+  ### Introduction tab
   tabPanel(
     title = "Introduction",
     selectInput(
@@ -50,28 +52,33 @@ sidebar_panel <- tabsetPanel(
       accept = c(".csv", ".tsv", ".txt")
     )
   ),
+  ### User manual
+  tabPanel(
+    title = "User Manual"
+  ),
+  ### Point mutation tab
   tabPanel(
     title = "Point Mutations",
     checkboxGroupInput(
       inputId = "snv_plot_checkboxInput",
-      choices = c("Oncoplot", "Summary plots", "Lollipop plot", "Rainfall plot"),
-      label = "Plots to render"
+      choices = c("Oncoplot", "Summary plot", "Lollipop plot", "Rainfall plot"),
+      label = "Plots to render (Maximum 2)",
+      selected = "Oncoplot"
     )
   ),
+  ### Structural Variants tab
   tabPanel(
     title = "Structural Variants"
   ),
+  ### Copy Number Variants tab
   tabPanel(
     title = "Copy Number Variants",
-    fluidRow(
-      column(6,
-             numericInput('cnv_plot_start', 'Start Coordinate', value = 0,
-                          min = 0)),
-      column(6,
-             numericInput('cnv_plot_end', 'End Coordinate', value = 15000000))
-    ),
-    selectInput("cnv_plot_chr", "Chrmosome", choices = c(1:22))
+    textInput("cnv_plot_sample", label = "Sample for CNV plot"),
+    selectInput("cnv_plot_mode", "Select how would you like to render CNV plot",
+                choices = c("By Hugo_Symbol", "By Coordinate"),
+                selected = NA)
   ),
+  ### Circos Plot tab
   tabPanel(
     title = "Circos Plot",
     # checkboxGroupInput(
@@ -87,7 +94,7 @@ sidebar_panel <- tabsetPanel(
   )
 )
 
-# dynamically change the options based on plots chosen
+# dynamically change the additional options based on plots chosen
 option_panel <- tabsetPanel(
   id = "sideBarOptions",
   type = "hidden",
@@ -100,20 +107,86 @@ option_panel <- tabsetPanel(
       inputId = "lollipop_gene",
       label = "Gene for lollipop plot"
     ),
-    selectInput(
-      inputId = "snv_plot_sample",
-      label = "Sample",
-      choices = c()
+    textInput(
+      inputId = "lollipop_sample",
+      label = "Sample for lollipop plot"
+    )
+  ),
+  tabPanel(
+    title = "rainfall",
+    textInput(
+      inputId = "rainfall_sample",
+      label = "Sample for rainfall plot"
+    )
+  ),
+  tabPanel(
+    title = "lollipopANDrainfall",
+    textInput(
+      inputId = "snv_gene",
+      label = "Gene"
+    ),
+    textInput(
+      inputId = "snv_sample",
+      label = "Sample"
+    )
+  ),
+  tabPanel(
+    title = "CNV_by_coor",
+    selectInput("cnv_plot_chr", "Chrmosome", choices = c(1:22)),
+    fluidRow(
+      column(6,
+             numericInput('cnv_plot_start', 'Start Coordinate', value = 0,
+                          min = 0)),
+      column(6,
+             numericInput('cnv_plot_end', 'End Coordinate', value = 15000000))
+    )
+  ),
+  tabPanel(
+    title = "CNV_by_gene",
+    textInput("cnv_plot_gene", label = "Enter Hugo_Symbol for CNV plot")
+  )
+)
+
+# dynamically change the main panel based on sidebar input
+# Main Panel
+main_panel <- tabsetPanel(
+  id = "dynamic_main",
+  type = "hidden",
+  tabPanel(
+    title = "Introduction",
+    includeMarkdown("../help/help.Rmd")
+  ),
+  tabPanel(
+    title = "User Manual",
+    includeMarkdown("../help/userManual.Rmd")),
+  tabPanel(
+    title = "Point Mutations",
+    plotOutput(outputId = "oncoPlot"),
+    plotOutput(outputId = "snv_summaryPlot"),
+    plotOutput(outputId = "snv_lollipopPlot")
+  ),
+  tabPanel(
+    title = "Structural Variants",
+    # plotOutput(outputId = "sv_summaryPlot"),
+    dataTableOutput(outputId = "sv_table")
+  ),
+  tabPanel(
+    title = "Copy Number Variants",
+    plotOutput("cnv_plot")
+  ),
+  tabPanel(
+    title = "Circos Plot",
+    column(12, align = "center",
+           uiOutput(
+             outputId = "circos_plot"
+           )
     )
   )
 )
 
-# # dynamically change the main panel based on sidebar input
-# # Main Panel
-# main_panel <- 
-
 # Define UI for application that draws a histogram
 ui <- fluidPage(
+  theme = shinytheme("flatly"),
   shinyFeedback::useShinyFeedback(),
   
   # Application title
@@ -129,36 +202,38 @@ ui <- fluidPage(
     ),
     
     mainPanel(
-      title = "dynamic_main",
-      tabsetPanel(id = "tabs",
-                  tabPanel(
-                    title = "Introduction",
-                    includeMarkdown("../help/help.Rmd")
-                  ),
-                  tabPanel(
-                    title = "Point Mutations",
-                    plotOutput(outputId = "oncoPlot"),
-                    plotOutput(outputId = "snv_summaryPlot"),
-                    plotOutput(outputId = "snv_lollipopPlot")
-                  ),
-                  tabPanel(
-                    title = "Structural Variants",
-                    # plotOutput(outputId = "sv_summaryPlot"),
-                    dataTableOutput(outputId = "sv_table")
-                  ),
-                  tabPanel(
-                    title = "Copy Number Variants",
-                    plotOutput("cnv_plot")
-                  ),
-                  tabPanel(
-                    title = "Circos Plot",
-                    column(12, align = "center",
-                           uiOutput(
-                             outputId = "circos_plot"
-                           )
-                    )
-                  )
+      tabsetPanel(
+        id = "tabs",
+        tabPanel(
+          title = "Introduction",
+          includeMarkdown("../help/help.Rmd")
+        ),
+        tabPanel(
+          title = "User Manual",
+          includeMarkdown("../help/userManual.Rmd")),
+        tabPanel(
+          title = "Point Mutations",
+          plotOutput(outputId = "firstPlot"),
+          plotOutput(outputId = "secondPlot")
+        ),
+        tabPanel(
+          title = "Structural Variants",
+          # plotOutput(outputId = "sv_summaryPlot"),
+          dataTableOutput(outputId = "sv_table")
+        ),
+        tabPanel(
+          title = "Copy Number Variants",
+          plotOutput("cnv_plot")
+        ),
+        tabPanel(
+          title = "Circos Plot",
+          column(12, align = "center",
+                 uiOutput(
+                   outputId = "circos_plot"
+                 )
+          )
+        )
       )
-    )
+      )
   )
 )
