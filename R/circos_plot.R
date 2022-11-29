@@ -32,7 +32,6 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
   }
   
   
-  
   snv <- snv_data %>% 
     filter(Variant_Type == "SNP") %>% 
     dplyr::select(Chromosome, Start_Position) %>% 
@@ -40,7 +39,6 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
     dplyr::group_by(Chromosome, start, end) %>% 
     dplyr::summarize(start = start, end = end, count = n()) %>% 
     as.data.frame()
-  
   
   barTracks = BioCircosBarTrack("myBar", 
                                 chromosomes = snv$Chromosome,
@@ -57,7 +55,7 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
                                "chr"))
   
   cnvTrack = BioCircosCNVTrack("myCNV",
-                               chromosomes = cnv$Chromosome,
+                               chromosomes = as.character(cnv$Chromosome),
                                starts = cnv$Start_Position,
                                ends = cnv$End_Position,
                                values = cnv$Reads_Ratio,
@@ -115,3 +113,11 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
             displayGenomeBorder = F,
             genomeTicksDisplay = F)
 }
+
+# setwd("/Users/alan/Downloads/files")
+# 
+# snv = read.csv("./SNV_201T_edited.csv")
+# sv = read.csv("./SV_CRC3.csv")
+# cnv = read.csv("./CNV_edited.csv")
+# 
+# draw_circosplot("GRCh38/hg38", snv, cnv, sv)

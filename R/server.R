@@ -9,8 +9,9 @@ options(shiny.maxRequestSize=10*1024^2)
 
 hg38_genes <- read.csv("../data/genes_hg38.bed", sep = "\t")
 
-source("./circos_plot.R")
+# source("./circos_plot.R")
 source("./plot_cnv.R")
+source("./plot_sv.R")
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
@@ -126,10 +127,8 @@ server <- function(input, output) {
         })
         
         output$secondPlot = renderPlot({
-          maftools::lollipopPlot(mafObj(),
-                                 gene = toupper(input$snv_gene),
-                                 AACol = "Protein_Change",
-                                 labelPos = "all")
+          maftools::rainfallPlot(mafObj(),
+                                 tsb = toupper(input$snv_sample))
         })
         
       } else if ("Lollipop plot" %in% input$snv_plot_checkboxInput) {
@@ -240,15 +239,12 @@ server <- function(input, output) {
   })
   
   ## SV
-  output$sv_table <- renderDataTable({
+  output$sv_circos = renderUI({
     req(input$sv_data_input$datapath)
+    req(input$sv_plot_sample)
     
-    datatable(
-      sv_file(),
-      options = list(scrollX = TRUE,
-                     scrollY = TRUE)
-    )
-  })
+    plot_sv(sv_file(), input$reference_genome, input$sv_plot_sample)
+    })
   
   
   ## Circos plot
@@ -258,5 +254,48 @@ server <- function(input, output) {
         input$sv_data_input$datapath)
     
     draw_circosplot(input$reference_genome, snv_file(), cnv_file(), sv_file())
+  })
+  
+  observeEvent(input$table_to_render, {
+    numOfselected = length(input$table_to_render)
+    
+    if (numOfselected > 1) {
+      updateCheckboxGroupInput(inputId = "table_to_render",
+                               selected = "SNV")
+
+      numOfselected = 1
+    }
+    
+    if (input$table_to_render == "SNV") {
+      output$table = renderDataTable({
+        req(input$snv_data_input$datapath)
+        
+        datatable(
+          snv_file(),
+          options = list(scrollX = TRUE,
+                         scrollY = TRUE)
+        )
+      })
+    } else if (input$table_to_render == "SV") {
+      output$table = renderDataTable({
+        req(input$sv_data_input$datapath)
+        
+        datatable(
+          sv_file(),
+          options = list(scrollX = TRUE,
+                         scrollY = TRUE)
+        )
+      })
+    } else {
+      output$table = renderDataTable({
+        req(input$cnv_data_input$datapath)
+        
+        datatable(
+          cnv_file(),
+          options = list(scrollX = TRUE,
+                         scrollY = TRUE)
+        )
+      })
+    }
   })
 }

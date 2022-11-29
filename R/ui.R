@@ -68,7 +68,8 @@ sidebar_panel <- tabsetPanel(
   ),
   ### Structural Variants tab
   tabPanel(
-    title = "Structural Variants"
+    title = "Structural Variants",
+    textInput("sv_plot_sample", label = "Sample for SV Circos Plot")
   ),
   ### Copy Number Variants tab
   tabPanel(
@@ -91,6 +92,13 @@ sidebar_panel <- tabsetPanel(
     #                "Structural Variants",
     #                "Copy Number Variants")
     # )
+  ),
+  tabPanel(
+    title = "Queryable Table",
+    checkboxGroupInput(inputId = "table_to_render",
+                       label = "Select type to render table (Maximum 1)",
+                       choices = c("SNV", "SV", "CNV"),
+                       selected = NA)
   )
 )
 
@@ -147,42 +155,46 @@ option_panel <- tabsetPanel(
   )
 )
 
-# dynamically change the main panel based on sidebar input
-# Main Panel
-main_panel <- tabsetPanel(
-  id = "dynamic_main",
-  type = "hidden",
-  tabPanel(
-    title = "Introduction",
-    includeMarkdown("../help/help.Rmd")
-  ),
-  tabPanel(
-    title = "User Manual",
-    includeMarkdown("../help/userManual.Rmd")),
-  tabPanel(
-    title = "Point Mutations",
-    plotOutput(outputId = "oncoPlot"),
-    plotOutput(outputId = "snv_summaryPlot"),
-    plotOutput(outputId = "snv_lollipopPlot")
-  ),
-  tabPanel(
-    title = "Structural Variants",
-    # plotOutput(outputId = "sv_summaryPlot"),
-    dataTableOutput(outputId = "sv_table")
-  ),
-  tabPanel(
-    title = "Copy Number Variants",
-    plotOutput("cnv_plot")
-  ),
-  tabPanel(
-    title = "Circos Plot",
-    column(12, align = "center",
-           uiOutput(
-             outputId = "circos_plot"
-           )
-    )
-  )
-)
+# # dynamically change the main panel based on sidebar input
+# # Main Panel
+# main_panel <- tabsetPanel(
+#   id = "dynamic_main",
+#   type = "hidden",
+#   tabPanel(
+#     title = "Introduction",
+#     includeMarkdown("../help/help.Rmd")
+#   ),
+#   tabPanel(
+#     title = "User Manual",
+#     includeMarkdown("../help/userManual.Rmd")),
+#   tabPanel(
+#     title = "Point Mutations",
+#     plotOutput(outputId = "oncoPlot"),
+#     plotOutput(outputId = "snv_summaryPlot"),
+#     plotOutput(outputId = "snv_lollipopPlot")
+#   ),
+#   tabPanel(
+#     title = "Structural Variants",
+#     # plotOutput(outputId = "sv_summaryPlot"),
+#     dataTableOutput(outputId = "sv_table")
+#   ),
+#   tabPanel(
+#     title = "Copy Number Variants",
+#     plotOutput("cnv_plot")
+#   ),
+#   tabPanel(
+#     title = "Circos Plot",
+#     column(12, align = "center",
+#            uiOutput(
+#              outputId = "circos_plot"
+#            )
+#     )
+#   ),
+#   tabPanel(
+#     title = "Queryable Table",
+#     dataTableOutput(outputId = "table")
+#   )
+# )
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -218,8 +230,7 @@ ui <- fluidPage(
         ),
         tabPanel(
           title = "Structural Variants",
-          # plotOutput(outputId = "sv_summaryPlot"),
-          dataTableOutput(outputId = "sv_table")
+          uiOutput(outputId = "sv_circos")
         ),
         tabPanel(
           title = "Copy Number Variants",
@@ -232,6 +243,10 @@ ui <- fluidPage(
                    outputId = "circos_plot"
                  )
           )
+        ),
+        tabPanel(
+          title = "Queryable Table",
+          dataTableOutput(outputId = "table")
         )
       )
       )
