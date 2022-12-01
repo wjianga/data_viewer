@@ -4,12 +4,13 @@ library(tidyverse)
 library(shinyFeedback)
 library(data.table)
 library(DT) # datatable() function
+library(markdown)
 
 options(shiny.maxRequestSize=10*1024^2)
 
 hg38_genes <- read.csv("../data/genes_hg38.bed", sep = "\t")
 
-# source("./circos_plot.R")
+source("./circos_plot.R")
 source("./plot_cnv.R")
 source("./plot_sv.R")
 

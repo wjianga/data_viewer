@@ -73,4 +73,4 @@ plot_sv <- function(sv_data, build, sample) {
             genomeTicksDisplay = F)
 }
 
-plot_sv(test, "GRCh38/hg38", "")
+# plot_sv(test, "GRCh38/hg38", "")

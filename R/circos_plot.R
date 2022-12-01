@@ -1,6 +1,6 @@
 library(BioCircos)
 
-draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
+draw_circosplot <- function(build, snv_data, cnv_data, sv_data) {
   GRCh38.chr.len <- c(248956422, 242193529, 198295559, 190214555,
                       181538259, 170805979, 159345973, 145138636, 138394717,
                       133797422, 135086622, 133275309, 114364328, 107043718,
@@ -45,8 +45,9 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
                                 starts = snv$start,
                                 ends = snv$end,
                                 values = snv$count,
+                                color = "#12ad10",
                                 minRadius = 0.7,
-                                maxRadius = 0.9)
+                                maxRadius = 0.95)
   
   
   cnv <- cnv_data %>% 
@@ -54,13 +55,22 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
                                str_remove,
                                "chr"))
   
-  cnvTrack = BioCircosCNVTrack("myCNV",
+  # cnvTrack = BioCircosCNVTrack("myCNV",
+  #                              chromosomes = as.character(cnv$Chromosome),
+  #                              starts = cnv$Start_Position,
+  #                              ends = cnv$End_Position,
+  #                              # values = cnv$Reads_Ratio,
+  #                              values = cnv$test,
+  #                              minRadius = 0.5,
+  #                              maxRadius = 0.6)
+  
+  cnvTrack = BioCircosSNPTrack("myCNV",
                                chromosomes = as.character(cnv$Chromosome),
-                               starts = cnv$Start_Position,
-                               ends = cnv$End_Position,
+                               positions = (cnv$Start_Position + cnv$End_Position) / 2,
                                values = cnv$Reads_Ratio,
-                               minRadius = 0.5,
-                               maxRadius = 0.6)
+                               colors = ifelse(cnv$Reads_Ratio >= 1, "red", "blue"),
+                               minRadius = 0.45,
+                               maxRadius = 0.65)
   
   sv <- sv_data %>% 
     filter(MUTATION_TYPE != "intrachromosomal deletion") %>% 
@@ -87,24 +97,28 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
                                gene2Chromosomes = sv$Chr2,
                                gene2Starts = as.numeric(sv$Start2),
                                gene2Ends = as.numeric(sv$Start2) + 1000,
-                               maxRadius = 0.4)
+                               maxRadius = 0.4,
+                               color = "#aa4ede")
   
-  tracks = cnvTrack + BioCircosBackgroundTrack("cnvBG",
-                                               minRadius = 0.5,
-                                               maxRadius = 0.6,
+  tracks = svTrack + BioCircosBackgroundTrack("svBG",
+                                              minRadius = 0,
+                                              maxRadius = 0.4,
+                                              borderColors = "#fc8c03",
+                                              fillColors = "#f0f8fc",
+                                              borderSize = 0) + 
+    cnvTrack + BioCircosBackgroundTrack("cnvBG",
+                                               minRadius = 0.45,
+                                               maxRadius = 0.65,
                                                borderColors = "#AAAAAA",
+                                               fillColors = "#e0dcbf",
                                                borderSize = 0.5) +
     barTracks + BioCircosBackgroundTrack("barBG",
-                                         minRadius = 0.7,
-                                         maxRadius = 0.9,
+                                         minRadius = 0.70,
+                                         maxRadius = 0.95,
                                          borderColors = "#AAAAAA",
-                                         borderSize = 0.6) +
-    svTrack + BioCircosBackgroundTrack("svBG",
-                                       minRadius = 0,
-                                       maxRadius = 0.4,
-                                       borderColors = "#AAAAAA",
-                                       fillColors = "#EEFFEE",
-                                       borderSize = 0)
+                                         fillColors = "#eddfdf",
+                                         borderSize = 0.6)
+    
   
   
   BioCircos(tracks,
@@ -120,4 +134,11 @@ draw_circosplot <- function(build, snv_data, cnv_data, sv_data){
 # sv = read.csv("./SV_CRC3.csv")
 # cnv = read.csv("./CNV_edited.csv")
 # 
+# cnv <- rbind(cnv, cnv)
+# 
+# cnv <- cnv %>% 
+#   mutate(Chromosome = sample(c(1:22, "X", "Y"), size = nrow(cnv), replace = TRUE)) %>% 
+#   mutate(Start_Position = sample(GRCh38.chr.len[22]:GRCh38.chr.len[23], nrow(cnv), replace = TRUE))
+# 
 # draw_circosplot("GRCh38/hg38", snv, cnv, sv)
+

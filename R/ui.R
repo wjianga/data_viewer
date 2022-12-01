@@ -155,47 +155,6 @@ option_panel <- tabsetPanel(
   )
 )
 
-# # dynamically change the main panel based on sidebar input
-# # Main Panel
-# main_panel <- tabsetPanel(
-#   id = "dynamic_main",
-#   type = "hidden",
-#   tabPanel(
-#     title = "Introduction",
-#     includeMarkdown("../help/help.Rmd")
-#   ),
-#   tabPanel(
-#     title = "User Manual",
-#     includeMarkdown("../help/userManual.Rmd")),
-#   tabPanel(
-#     title = "Point Mutations",
-#     plotOutput(outputId = "oncoPlot"),
-#     plotOutput(outputId = "snv_summaryPlot"),
-#     plotOutput(outputId = "snv_lollipopPlot")
-#   ),
-#   tabPanel(
-#     title = "Structural Variants",
-#     # plotOutput(outputId = "sv_summaryPlot"),
-#     dataTableOutput(outputId = "sv_table")
-#   ),
-#   tabPanel(
-#     title = "Copy Number Variants",
-#     plotOutput("cnv_plot")
-#   ),
-#   tabPanel(
-#     title = "Circos Plot",
-#     column(12, align = "center",
-#            uiOutput(
-#              outputId = "circos_plot"
-#            )
-#     )
-#   ),
-#   tabPanel(
-#     title = "Queryable Table",
-#     dataTableOutput(outputId = "table")
-#   )
-# )
-
 # Define UI for application that draws a histogram
 ui <- fluidPage(
   theme = shinytheme("flatly"),
@@ -218,11 +177,11 @@ ui <- fluidPage(
         id = "tabs",
         tabPanel(
           title = "Introduction",
-          includeMarkdown("../help/help.Rmd")
+          includeMarkdown("./help/help.Rmd")
         ),
         tabPanel(
           title = "User Manual",
-          includeMarkdown("../help/userManual.Rmd")),
+          includeMarkdown("./help/userManual.Rmd")),
         tabPanel(
           title = "Point Mutations",
           plotOutput(outputId = "firstPlot"),
